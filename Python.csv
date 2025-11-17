@@ -1,0 +1,459 @@
+import math
+
+for num in range(2, 51):
+    is_prime = True
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(num)
+
+# Print all prime numbers between 1 and 50
+for num in range(2, 51):  # Start from 2 because 1 is not prime
+    is_prime = True
+
+    # Check if num is divisible by any number from 2 to num-1
+    for i in range(2, num):
+        if num % i == 0:
+            is_prime = False
+            break  # No need to check further
+
+    if is_prime:
+        print(num)
+
+        
+
+    import math
+
+num = 2  # start from 2 because 1 is not prime
+
+while num <= 50:
+    is_prime = True
+
+    # check divisibility from 2 to sqrt(num)
+    i = 2
+    while i <= int(math.sqrt(num)):
+        if num % i == 0:
+            is_prime = False
+            break
+        i += 1
+
+    if is_prime:
+        print(num)
+
+    num += 1
+
+
+
+num = 2  # start from 2 because 1 is not prime
+
+while num <= 50:
+    is_prime = True
+
+    # check divisibility from 2 to num-1
+    i = 2
+    while i < num:
+        if num % i == 0:
+            is_prime = False
+            break
+        i += 1
+
+    if is_prime:
+        print(num)
+
+    num += 1
+
+# Number of rows
+rows = 5
+
+for i in range(1, rows + 1):       # Outer loop → rows
+    for j in range(1, i + 1):       # Inner loop → numbers in each row
+        print(j, end="")            # Print numbers on the same line
+    print()                         # Move to next line after each row
+
+1
+12
+123
+1234
+12345
+
+# Number of rows
+rows = 5
+
+for i in range(rows, 0, -1):        # Outer loop → starts from 5 down to 1
+    for j in range(1, i + 1):       # Inner loop → print from 1 up to i
+        print(j, end="")            # Print on same line
+    print()                         # New line after each row
+
+12345
+1234
+123
+12
+1
+
+def check_even_odd(num):
+    if num % 2 == 0:
+        print(num, "is even")
+    else:
+        print(num, "is odd")
+
+nums = int(input("Enter your number: "))
+check_even_odd(nums)
+
+
+def largest_of_three(a, b, c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+    
+num1 = float(input("Enter 1st number: "))
+num2 = float(input("Enter 2nd number: "))
+num3 = float(input("Enter 3rd number: "))
+
+print("The largest of three number is", largest_of_three(num1, num2, num3))
+----------------------------------------------------------------------------
+
+# 11/09/2025
+def add(a, b):    # Positional arguments ------
+    print(a + b)
+
+add(5, 3)   # a=5, b=3
+
+# Keyword arguments ----
+def greet(name, age):
+    print(f"Hello {name}, you are {age} years old.")
+
+greet("Zain", 21)
+greet(age= 21, name= "Zayn")
+
+# Variable lenght arguments -----
+# *args -- aloows multiple postional arguments (tuple) 
+def add(*numbers):
+    total = 0
+    for n in numbers:
+        total += n
+    print("Sum =", total)
+
+add(2, 3, 4, 5)
+
+# **kwargs -- allows multiple keyword arguments (dictionary)
+def show_details(**info):
+    for key, value in info.items():
+        print(key, ":", value)
+
+show_details(name = "Zain", age = 21, country = "India")
+
+Scope of Variables
+Local Variable → declared inside a function (accessible only there)
+Global Variable → declared outside (accessible everywhere)
+
+x = 10   # global
+
+def test():
+    y = 5   # local
+    print("Inside function:", x + y)
+
+test()
+print("Outside function:", x)
+
+def multiply_all(*nums):
+    total = 0
+    for n in nums:
+        total *= n
+    print("Multiply =", total)
+
+def student_info(**details):
+    print("Student Information:")
+    print("Name :", details.get("name", "Not Provided"))
+    print("Age  :", details.get("age", "Not Provided"))
+    print("Grade:", details.get("grade", "Not Provided"))
+
+# Example usage
+student_info(name="Alice", age=20, grade="A")
+student_info(name="Bob", grade="B")  # age missing on purpose
+
+Student Information:
+Name : Alice
+Age  : 20
+Grade: A
+
+Student Information:
+Name : Bob
+Age  : Not Provided
+Grade: B
+
+Explanation:
+-------------
+**details collects keyword arguments into a dictionary.
+.get("key", "default") safely fetches values.
+This way, even if some info is missing, the program won’t crash.
+
+
+def student_info(**details):
+    print("Student Information:")
+    for key, value in details.items():
+        print(f"{key.capitalize()} : {value}")
+
+# Example usage
+student_info(name="Alice", age=20, grade="A", school="ABC High School", city="New York")
+print()
+student_info(name="Bob", grade="B", subject="Math", hobby="Football")
+
+Student Information:
+Name : Alice
+Age : 20
+Grade : A
+School : ABC High School
+City : New York
+
+Student Information:
+Name : Bob
+Grade : B
+Subject : Math
+Hobby : Football
+
+🧠 Explanation
+---------------
+**details collects all keyword arguments into a dictionary.
+for key, value in details.items() loops through them.
+key.capitalize() makes the keys look neat when printing.
+Now you can pass any detail you want — the function automatically handles it.
+
+------------------------------------
+1)
+name = 'Zain'
+line = ''
+
+for i in name:
+    line += '-'
+line = '+' + line + '+'
+print(line)
+print('|' + name + '|')
+print(line)
+
+Output:
++----+
+|Zain|
++----+
+------------------------------------
+2)
+name = 'World'
+line = ''
+
+line = '+' + name + '+'
+spaces = ''
+
+for i in name:
+    spaces += ' '
+    
+print(line)
+for j in name:
+    print(j + spaces + j)
+print(line)
+
+Output:
++World+
+W     W
+o     o
+r     r
+l     l
+d     d
++World+
+----------------------------------------
+----------------------------------------
+
+# Python program to illustrate
+# Finding common member in list
+# without  using 'in' operator
+
+#  Define a function() that takes two lists
+
+
+def overlapping(a, b):
+
+    c = 0
+    d = 0
+    for i in a:
+        c += 1
+    for i in b:
+        d += 1
+    for i in range(0, c):
+        for j in range(0, d):
+            if(a[i] == b[j]):
+                return 1
+    return 0
+
+
+a = [1, 2, 3, 4, 5]
+b = [6, 7, 8, 9]
+if(overlapping(a, b)):
+    print("overlapping")
+else:
+    print("not overlapping")
+
+Output:
+not overlapping
+
+**
+print("+" + 10 * "-" + "+")
+print(("|" + " " * 10 + "|\n") * 5, end="")
+print("+" + 10 * "-" + "+")
+
+Output:
++----------+
+|          |
+|          |
+|          |
+|          |
+|          |
++----------+
+
+**
+x = float(input("Enter value for x: "))
+y = 1./(x + 1./(x + 1./(x + 1./x)))
+print("y =", y)
+
+   1
+------
+x + 1
+   ----
+   x + 1
+      ----
+      x + 1
+         ----
+           x
+
+
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
+
+mins = mins + dura # find a total of all minutes
+
+hour = hour + mins // 60 # find a number of hours hidden in minutes and update the hour
+
+mins = mins % 60 # correct minutes to fall in the (0..59) range
+
+hour = hour % 24 # correct hours to fall in the (0..23) range
+
+print(hour, ":", mins, sep='')
+
+05-10-2025
+-----------
+str_obj.index, 
+r.index
+len()
+upper()
+lower()
+isupper()
+islower()
+startswith()
+endswith()
+split()
+join()
+strip()
+Isstrip()  -------removes unwanted chr from the strings---------
+rstrip()
+find()
+Istrip()
+
+s = "GeeksforGeeks Python Course"
+print(s.startswith("Geeks"))
+
+s1 = "geeks for geeks"
+print(s1.split())
+
+l = ["geeksforgeeks", "python", "course"]
+print(" ".join(l))  
+print(", ".join(l))
+
+s = "--geeksforgeeks---"
+print(s.strip("-"))  
+print(s.lstrip("-"))  
+print(s.rstrip("-"))
+
+s1 = "geeks for geeks"
+s2 = "geeks"
+print(s1.find(s2))      
+print(s1.find("gfg"))
+print(s1.find(s2, 1, len(s1)))
+
+ASCII v Unicode
+Python uses Unicode whereas like C and C++ uses ASCII to store their characters
+
+s1 = "ABCD"
+s2 = "ABC"
+
+s1 > s2 ---> True
+
+lowercase characters have higher Unicode than uppercase characters
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+05-10-2025
+List2 = ['For', 'Geeks']
+List.append(List2)
+print("\nList after Addition of a List: ")
+print(List)
+
+list_obj.append()
+list_obj.insert(index, add)
+list_obj.count()  -----count a specific element is repeated-------
+list_name.pop()   ------removes items by indexing-------
+list_name.remove()   ------removes first occurance of elements or items from the list by value-------
+del list_name[index]
+max()
+min()
+list_name.sort()   ----- sorting the list items in ascending, descending order or user-defined order ------
+    sort(True ---> desc and False ---> default order)
+list_name.reverse()
+
+##Reversing a string using loops:
+original_string = "python"
+reversed_string = ""
+for char in original_string:
+    reversed_string = char + reversed_string
+print(reversed_string)
+
+original_string = "example"
+reversed_string = ""
+index = len(original_string) - 1
+while index >= 0:
+    reversed_string += original_string[index]
+    index -= 1
+print(reversed_string)
+
+original_string = "world"
+reversed_string = "".join(reversed(original_string))
+print(reversed_string)
+
+Nesred If statments:
+if the_weather_is_good:
+    if nice_restaurant_is_found:
+        have_lunch()
+    else:
+        eat_a_sandwich()
+else:
+    if tickets_are_available:
+        go_to_the_theater()
+    else:
+        go_shopping()
+
+
+##Again, we'll change our plans and express them as follows:
+If the weather is fine, we'll go for a walk, otherwise if we get tickets,
+we'll go to the theater, otherwise if there are free tables at the restaurant,
+we'll go for lunch; if all else fails, we'll stay home and play chess.
+
+if the_weather_is_good:
+    go_for_a_walk()
+elif tickets_are_available:
+    go_to_the_theater()
+elif table_is_available:
+    go_for_lunch()
+else:
+    play_chess_at_home()
+
