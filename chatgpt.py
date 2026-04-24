@@ -212,42 +212,42 @@
 
 #Practice
 #----------
-def multiply_all(*nums):
-    total = 1
-    for n in nums:
-        total *= n
-    print("Multiply =", total)
+# def multiply_all(*nums):
+#     total = 1
+#     for n in nums:
+#         total *= n
+#     print("Multiply =", total)
 
-multiply_all(2, 3, 4, 5)
+# multiply_all(2, 3, 4, 5)
 
-#2
-def multiply_all(*nums):
-    result = 1
-    for n in nums:
-        result *= n
-    return result
+# #2
+# def multiply_all(*nums):
+#     result = 1
+#     for n in nums:
+#         result *= n
+#     return result
 
-# Example usage
-print(multiply_all(2, 3, 4))        # 24
-print(multiply_all(5, 10))          # 50
-print(multiply_all(1, 2, 3, 4, 5))  # 120
+# # Example usage
+# print(multiply_all(2, 3, 4))        # 24
+# print(multiply_all(5, 10))          # 50
+# print(multiply_all(1, 2, 3, 4, 5))  # 120
 
-#**kwargs -------------
-def student_info(**details):
-    for key, value in details.items():
-        print(key, ":", value)
+# #**kwargs -------------
+# def student_info(**details):
+#     for key, value in details.items():
+#         print(key, ":", value)
 
-student_info(name = "Zain", age = 21.6, grade = 9.03)
+# student_info(name = "Zain", age = 21.6, grade = 9.03)
 
-def student_info(**details):
-    print("Student Information:")
-    print("Name :", details.get("name", "Not Provided"))
-    print("Age  :", details.get("age", "Not Provided"))
-    print("Grade:", details.get("grade", "Not Provided"))
+# def student_info(**details):
+#     print("Student Information:")
+#     print("Name :", details.get("name", "Not Provided"))
+#     print("Age  :", details.get("age", "Not Provided"))
+#     print("Grade:", details.get("grade", "Not Provided"))
 
-# Example usage
-student_info(name="Alice", age=20, grade="A")
-student_info(name="Bob", grade="B")  # age missing on purpose
+# # Example usage
+# student_info(name="Alice", age=20, grade="A")
+# student_info(name="Bob", grade="B")  # age missing on purpose
 
 def student_info(**details):
     print("Student Information:")
@@ -255,6 +255,6 @@ def student_info(**details):
         print(f"{key.capitalize()} : {value}")
 
 # Example usage
-student_info(name="Alice", age=20, grade="A", school="ABC High School", city="New York")
-print()
-student_info(name="Bob", grade="B", subject="Math", hobby="Football")
+# student_info(name="Alice", age=20, grade="A", school="ABC High School", city="New York")
+# print()
+# student_info(name="Bob", grade="B", subject="Math", hobby="Football")
